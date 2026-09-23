@@ -22,7 +22,6 @@ function tick () {
 setInterval(tick(), 1000);
 
 // Ideally want
-
 ReactDOM.render(
   <Clock />,
   document.getElementById("root")
@@ -35,10 +34,11 @@ function Clock (props) {
   return (
     <div>
       <h1> Hello World </h1>
-      <p> Good morning, the time is {props.time.toLocaleTimeString()}. </p>
+      <p> Good morning, the time is {props.date.toLocaleTimeString()}. </p>
     </div>
   );
 }
+
 // Class example
 class Clock extends React.Component {
   render() {
@@ -50,3 +50,38 @@ class Clock extends React.Component {
     );
   }
 }
+
+// Both run with
+ReactDOM.render(
+  <Clock date={new Date()} />,
+  document.getElementById("root")
+);
+
+
+// 5.2 Adding local state to a class
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+  render() {
+    return (
+      <div>
+        <h1> Hello World </h1>
+        <p> Good morning, the time is {this.state.date.toLocaleTimeString()}. </p>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Clock />,
+  document.getElementById("root")
+);
+
+
+
+
+
+
+
