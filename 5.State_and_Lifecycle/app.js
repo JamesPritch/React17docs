@@ -6,7 +6,7 @@ function Clock (props) {
       <h1> Hello World </h1>
       <p> Good morning, the time is {props.time.toLocaleTimeString()}. </p>
     </div>
-  )
+  );
 }
 
 function tick () {
