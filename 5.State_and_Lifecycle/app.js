@@ -80,8 +80,38 @@ ReactDOM.render(
 );
 
 
+// 5.3 Adding lifecycle methods to a class
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+  componentDidMount () {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+  componentWillUnmount () {
+    clearInterval(this.timerID);
+  }
+  tick () {
+    this.setState({
+      date: new Date()
+    });
+  }
+  render() {
+    return (
+      <div>
+        <h1> Hello World </h1>
+        <p> Good morning, the time is {this.state.date.toLocaleTimeString()}. </p>
+      </div>
+    );
+  }
+}
 
-
-
-
+ReactDOM.render(
+  <Clock />,
+  document.getElementById("root")
+);
 
