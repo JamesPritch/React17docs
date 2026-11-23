@@ -1,5 +1,5 @@
 // 6 Handling Events
-// 6.0 Motivation
+// 6.1 Motivation
 class Toggle extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +25,7 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
+
 // Class fields instead of binding
 class Toggle extends React.Component {
   constructor(props) {
@@ -49,6 +50,7 @@ ReactDOM.render(
   <Toggle />,
   document.getElementById("root")
 );
+
 
 // Arrow function in callback instead of binding
 class Toggle extends React.Component {
