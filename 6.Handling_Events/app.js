@@ -24,3 +24,53 @@ ReactDOM.render(
   <Toggle />,
   document.getElementById("root")
 );
+
+// Class fields instead of binding
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+  }
+  handleClick = () => {
+    this.setState((prevState) => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  };
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? "On" : "Off"}
+      </button>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById("root")
+);
+
+// Arrow function in callback instead of binding
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+  }
+  handleClick () {
+    this.setState((prevState) => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  };
+  render() {
+    return (
+      <button onClick={() => this.handleClick()}>
+        {this.state.isToggleOn ? "On" : "Off"}
+      </button>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById("root")
+);
